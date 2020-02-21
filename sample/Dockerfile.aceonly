@@ -4,5 +4,5 @@ RUN mkdir /home/aceuser/bars
 
 RUN chown aceuser:mqbrkrs /home/aceuser/bars 
 COPY sample/bars_aceonly /home/aceuser/bars 
-RUN cd /home/aceuser/ace-server && ls
+RUN cd /home/aceuser/bars && chmod 777 * && ls -lrt 
 RUN cd /home/aceuser/bars && ls && . /opt/ibm/ace-11/server/bin/mqsiprofile && mqsicreatebroker NODE1 && mqsistart NODE1 && mqsicreateexecutiongroup NODE1 -e Server1 && mqsideploy NODE1 -e Server1 -a sample.bar
