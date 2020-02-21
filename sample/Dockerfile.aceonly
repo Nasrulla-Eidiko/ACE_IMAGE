@@ -6,5 +6,5 @@ RUN chown -R aceuser:mqbrkrs /home/aceuser/bars && chmod -R 777 /home/aceuser/ba
 COPY sample/bars_aceonly /home/aceuser/bars 
 RUN chmod -R 777 /home/aceuser/bars && cd /home/aceuser/bars &&  ls -lrt
 USER aceuser
-RUN cd /home/aceuser/bars && ls -lrt && . /opt/ibm/ace-11/server/bin/mqsiprofile && masibar -a HTTPSEcho.bar -w /home/bandaru/ace-server/
+RUN cd /home/aceuser/bars && ls -lrt && . /opt/ibm/ace-11/server/bin/mqsiprofile && mqsibar -a HTTPSEcho.bar -w /home/bandaru/ace-server/
 #mqsicreatebroker NODE1 && mqsistart NODE1 && mqsicreateexecutiongroup NODE1 -e Server1 && mqsideploy NODE1 -e Server1 -a HTTPSEcho.bar 
