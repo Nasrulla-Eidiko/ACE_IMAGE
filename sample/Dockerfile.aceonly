@@ -3,6 +3,7 @@ FROM ace-dev-only:latest
 RUN mkdir /home/aceuser/bars
 
 RUN chown -R aceuser:mqbrkrs /home/aceuser/bars  && chmod 777 /home/aceuser/bars 
-ADD sample/bars_aceonly /home/aceuser/bars
+RUN su - aceuser -c 'COPY sample/bars_aceonly /home/aceuser/bars'
+#ADD sample/bars_aceonly /home/aceuser/bars
 #RUN cd /home/aceuser/bars && ls -lrt
 RUN cd /home/aceuser/bars && ls -lrt && . /opt/ibm/ace-11/server/bin/mqsiprofile && mqsicreatebroker NODE1 && mqsistart NODE1 && mqsicreateexecutiongroup NODE1 -e Server1 && mqsideploy NODE1 -e Server1 -a HTTPSEcho.bar 
