@@ -1,0 +1,7 @@
+ FROM ace-dev-only:latest
+
+RUN mkdir /home/aceuser/bars
+
+RUN chown aceuser:mqbrkrs /home/aceuser/bars && chmod -R 775 /home/aceuser/bars
+COPY sample/bars_aceonly /home/aceuser/bars
+RUN cd /home/aceuser/bars && . /opt/ibm/ace-11/server/bin/mqsiprofile && mqsibar -a Test.zip -c -w /home/aceuser/ace-server
