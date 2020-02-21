@@ -4,4 +4,4 @@ RUN mkdir /home/aceuser/bars
 
 RUN chown aceuser:mqbrkrs /home/aceuser/bars && chmod -R 775 /home/aceuser/bars
 COPY sample/bars_aceonly /home/aceuser/bars
-RUN cd /home/aceuser/bars && ls && . /opt/ibm/ace-11/server/bin/mqsiprofile && mqsibar -a sample.zip -c -w /home/aceuser/ace-server
+RUN cd /home/aceuser/bars && ls && . /opt/ibm/ace-11/server/bin/mqsiprofile && mqsibar -a sample.bar -c -w /home/aceuser/ace-server
